@@ -1,0 +1,814 @@
+/* Estilos Generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #333 !important;
+}
+
+.nav-link {
+    font-weight: 400;
+    color: #555 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #000 !important;
+}
+
+/* Botones de filtro */
+.filter-btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 5px;
+    transition: all 0.3s ease;
+    border-color: #ccc;
+    color: #555;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* Galería tipo Pinterest (Masonry-like layout) */
+#portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px; /* Espacio entre las imágenes */
+    margin-top: 20px;
+}
+
+.portfolio-item {
+    break-inside: avoid; /* Previene que los elementos se corten entre columnas */
+    background-color: transparent; /* MUY IMPORTANTE: Fondo completamente transparente */
+    border-radius: 0; /* MUY IMPORTANTE: Elimina cualquier borde redondeado del contenedor */
+    overflow: hidden; /* Asegura que la imagen no se desborde del contenedor flexible */
+    box-shadow: none; /* MUY IMPORTANTE: Elimina todas las sombras */
+    transition: transform 0.3s ease; /* Solo transición en el transform si hay hover */
+    cursor: pointer;
+    display: flex; /* Sigue usando flexbox para apilar imagen y texto */
+    flex-direction: column; /* Apila imagen y texto */
+}
+
+.portfolio-item:hover {
+    transform: none; /* Elimina cualquier efecto de levantamiento al pasar el mouse si no lo deseas */
+    /* Si quieres un efecto de levantamiento SUTIL sin sombra, podrías poner:
+    transform: translateY(-3px);
+    */
+    box-shadow: none; /* Asegura que no haya sombras al pasar el mouse tampoco */
+}
+
+.portfolio-item img {
+    width: 100%; /* La imagen llenará el ancho disponible de su columna */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    display: block;
+    border-radius: 0; /* MUY IMPORTANTE: Elimina cualquier borde redondeado de la imagen si no lo quieres */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión, recortando si es necesario */
+}
+
+.portfolio-item-caption {
+    padding: 5px 10px 10px; /* Reducido y ajustado para que la descripción esté "pegada" abajo de la imagen */
+    text-align: center;
+    flex-grow: 0; /* NO queremos que el caption crezca, que ocupe solo su espacio */
+    flex-shrink: 0; /* Previene que el caption se encoja */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el texto en la parte superior del caption */
+    background-color: transparent; /* Asegura que el caption tampoco tenga fondo */
+    text-decoration: none;
+}
+
+.portfolio-item-caption h3 {
+    font-size: 0.9rem; /* Título aún más pequeño */
+    margin-bottom: 2px; /* Margen aún más reducido */
+    color: #333;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none !important; 
+}
+
+.portfolio-item-caption p {
+    font-size: 0.7rem; /* Descripción aún más pequeña y discreta */
+    color: #666;
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 1.3;
+    text-decoration: none !important; 
+}
+
+.portfolio-item a,
+.lg-outer a { /* Target links within these specific components */
+    text-decoration: none !important;
+
+}
+
+.portfolio-item-caption a,
+.portfolio-item-caption a:focus,
+.portfolio-item-caption a:active,
+.portfolio-item-caption a:hover {
+    text-decoration: none !important;
+    color: #333 !important; /* O el color que prefieras */
+    box-shadow: none !important; /* Quita el outline azul de Bootstrap 5 */
+    outline: none !important;
+}
+
+/* Efectos de movimiento (ejemplo simple de fade-in) */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Retraso para múltiples elementos (puedes aplicar esto con JS si es necesario para un efecto escalonado) */
+.portfolio-item {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Asegúrate de que estén ocultos inicialmente */
+}
+
+/* Lightgallery customization (Opcional) */
+.lg-outer .lg-thumb-item {
+    border-radius: 5px;
+}
+.lg-outer .lg-toolbar {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* If the underline appears in the Lightgallery caption, you might need to target specific Lightgallery classes as well */
+.lg-sub-html h4,
+.lg-sub-html p {
+    text-decoration: none;
+}
+
+/* Responsive Design - Mobile First */
+
+/* Para tablets y escritorios pequeños */
+@media (min-width: 576px) {
+    #portfolio-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Para tablets más grandes y escritorios */
+@media (min-width: 768px) {
+    #portfolio-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .navbar-brand {
+        font-size: 2rem;
+    }
+    .nav-link {
+        font-size: 1.1rem;
+    }
+}
+
+/* Para escritorios grandes */
+@media (min-width: 992px) {
+    #portfolio-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+
+
+#portfolio-gallery a,
+#portfolio-gallery a:focus,
+#portfolio-gallery a:active,
+#portfolio-gallery a:hover {
+    color: #333 !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background: none !important;
+}
+
+
+
+.bg-white {
+  --bs-bg-opacity: 1;
+  background-color: rgb(247, 245, 245) !important;
+}
+
+/* Estilos para enlaces en la sección principal de bio.html */
+main a,
+main a:focus,
+main a:active,
+main a:hover {
+    color: #333 !important; /* Color gris oscuro */
+    text-decoration: none !important; /* Elimina el subrayado */
+    box-shadow: none !important;
+    outline: none !important;
+    background: none !important;
+}
+
+/* Ajustes específicos para los enlaces del listado de contacto si fueran diferentes */
+#contact .contact-list a {
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+#contact .contact-list a:hover {
+    color: #000 !important; /* Un poco más oscuro al pasar el ratón para los de contacto */
+}
+
+/* assets/css/style.css - Añadir o modificar */
+
+/* Mejora de botones de filtro activos/hover */
+.filter-btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid #ccc; /* Bordes sutiles para los inactivos */
+    color: #555;
+    font-weight: 500; /* Ligeramente más negrita */
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+    transform: translateY(-2px); /* Pequeño levantamiento */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Efecto hover para items del portafolio */
+.portfolio-item {
+    position: relative;
+    overflow: hidden; /* Asegura que los elementos fuera de la caja no se vean */
+    cursor: pointer; /* Indica que es clickable */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.portfolio-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- PALETA DE COLORES Y UX - ADICIONES / MODIFICACIONES --- */
+
+/* 1. Fondo Principal (Body) */
+body {
+    background-color: #FDFBF8; /* Un blanco roto cálido */
+    /* Mantener los demás estilos del body */
+}
+
+/* 2. Header (Opcional, si quieres cambiar de blanco a un oscuro con la paleta) */
+/* Si tu header es blanco, puedes mantenerlo así. Si es oscuro, modifica esto: */
+.header { /* O .bg-white si lo tienes en el header directamente */
+    background-color: #FDFBF8; /* Para mantenerlo claro y que el logo destaque */
+    /* Si decides que el header sea oscuro, usa: background-color: #2C3A47; */
+}
+
+/* 3. Navbar Branding (Logo [CHENKA]) */
+.navbar-brand {
+    color: #AF5E42 !important; /* Acento principal para el logo */
+}
+
+/* 4. Navegación (Enlaces del Navbar) */
+.nav-link {
+    color: #555555 !important; /* Gris medio para enlaces por defecto */
+}
+.nav-link:hover {
+    color: #AF5E42 !important; /* Íconos de redes sociales con el color de acento */
+    
+}
+
+
+
+
+/* 6. Líneas divisorias (HR) */
+hr {
+    border-top: 1px solid #EBEAE6; /* Color de línea más suave y sutil */
+    opacity: 1; /* Asegura que la línea sea visible */
+    margin: 3rem auto; /* Ajusta el margen si es necesario */
+    max-width: 80%; /* Para que no ocupe todo el ancho si no es necesario */
+}
+
+
+/* 7. Footer */
+footer.bg-dark { /* Reemplaza el bg-dark de Bootstrap */
+    background-color: #2C3A47 !important; /* Fondo oscuro de la paleta */
+}
+footer a.text-white {
+    color: #AF5E42 !important; /* Íconos de redes sociales con el color de acento */
+}
+footer a.text-white:hover {
+    color: #fff !important; /* Blanco al pasar el ratón para los íconos de redes */
+}
+
+
+/* 8. Sección de Contacto (Iconos) */
+#contact .contact-list a {
+    color: #333333 !important; /* Color de texto principal para los enlaces de contacto */
+}
+#contact .contact-list a:hover {
+    color: #AF5E42 !important; /* Acento principal para los enlaces de contacto al pasar el ratón */
+}
+#contact .contact-list i {
+    color: #AF5E42; /* Iconos de contacto con el acento principal */
+}
+
+/* Reafirmar estilos de links generales para el body (si ya no los tienes así) */
+main a {
+    color: #555555; /* Links por defecto en gris medio */
+    text-decoration: none;
+}
+main a:hover {
+    color: #AF5E42; /* Hover con acento principal */
+    text-decoration: none;
+}
+
+
+/* Estilos para destacar el nombre de la serie en la galería */
+.portfolio-item-caption .series-name {
+    font-size: 0.85rem; /* Un poco más grande para destacarse */
+    font-weight: 600; /* Un poco más de peso para la serie */
+    font-style: italic;
+    color: #444; /* Un color que resalte un poco más */
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #eee; /* Línea sólida más visible para la serie */
+    text-transform: capitalize; 
+}
+
+/* Estilos para la descripción general (cat) en la galería */
+.portfolio-item-caption .item-cat-description {
+    font-size: 0.75rem; /* Tamaño más pequeño para la descripción general */
+    color: #888; /* Un color más tenue */
+    margin-top: 5px;
+}
+
+/* Ajustes para el título de la obra dentro de la galería */
+.portfolio-item-caption h3 {
+    margin-bottom: 5px; /* Espacio entre el título y la serie/descripción */
+}
+
+/* Estilos para la leyenda de LightGallery */
+/* El título en LightGallery */
+.lg-sub-html h4 {
+    color: #fff; 
+    margin-bottom: 5px;
+}
+
+/* La serie en LightGallery */
+.lg-sub-html .series-name {
+    font-size: 0.95rem; /* Un poco más grande en LightGallery para mejor lectura */
+    font-weight: 600;
+    font-style: italic;
+    color: #e0e0e0; /* Color claro para la serie sobre fondo oscuro de LightGallery */
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4); /* Línea divisoria en LightGallery */
+    text-transform: capitalize;
+}
+
+/* Estilos para destacar el nombre de la serie en la galería */
+.portfolio-item-caption .series-name {
+    font-size: 0.85rem; /* Un poco más grande para destacarse */
+    font-weight: 600; /* Un poco más de peso para la serie */
+    font-style: italic;
+    color: #444; /* Un color que resalte un poco más */
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #eee; /* Línea sólida más visible para la serie */
+    text-transform: capitalize; 
+}
+
+/* Estilos para la descripción general (cat) en la galería */
+.portfolio-item-caption .item-cat-description {
+    font-size: 0.75rem; /* Tamaño más pequeño para la descripción general */
+    color: #888; /* Un color más tenue */
+    margin-top: 5px;
+}
+
+/* Ajustes para el título de la obra dentro de la galería */
+.portfolio-item-caption h3 {
+    margin-bottom: 5px; /* Espacio entre el título y la serie/descripción */
+}
+
+/* Estilos para la leyenda de LightGallery */
+/* El título en LightGallery */
+.lg-sub-html h4 {
+    color: #fff; 
+    margin-bottom: 5px;
+}
+
+/* La serie en LightGallery */
+.lg-sub-html .series-name {
+    font-size: 0.95rem; /* Un poco más grande en LightGallery para mejor lectura */
+    font-weight: 600;
+    font-style: italic;
+    color: #e0e0e0; /* Color claro para la serie sobre fondo oscuro de LightGallery */
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4); /* Línea divisoria en LightGallery */
+    text-transform: capitalize;
+}
+
+/* La descripción general (cat) en LightGallery */
+.lg-sub-html .item-cat-description {
+    font-size: 0.85rem;
+    color: #b0b0b0; /* Color más tenue para la descripción en LightGallery */
+    margin-top: 5px;
+}
+
+
+header {
+    background-image: url('../img/pintura/la-pela-papas.jpg'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el área del header */
+    background-position: center; /* Centra la imagen en el header */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    /* background-color: #ffffff; /* Elimina o comenta esta línea si la tienes en el header */
+    /* py-3 y shadow-sm ya están en el HTML, pero si quieres controlar la altura desde CSS: */
+    min-height: 200px; /* Ajusta esta altura según lo que necesites para que la imagen se vea bien */
+    display: flex; /* Para que el contenido (navbar) se alinee verticalmente */
+    align-items: center; /* Centra verticalmente el contenido del header */
+    color: #fff; /* O un color que contraste bien con tu imagen de fondo */
+    position: relative; /* Necesario para la superposición de color */
+}
+
+/* Opcional: Añadir una superposición oscura para mejorar la legibilidad del texto */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Color oscuro con 30% de opacidad */
+    z-index: 1; /* Asegura que la superposición esté detrás del contenido (navbar) */
+}
+
+header .container {
+    position: relative; /* Asegura que el contenido (navbar) esté por encima de la superposición */
+    z-index: 2;
+}
+
+/* Ajusta el color del texto de la barra de navegación para que se vea bien sobre la imagen */
+header .navbar-brand,
+header .nav-link {
+    color: #fff !important; /* Blanco para mejor contraste */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para el texto para mayor legibilidad */
+}
+
+header .navbar-toggler-icon {
+    filter: invert(1); /* Invierte el color del icono del toggler para que sea blanco */
+}
+
+header .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1); /* Borde claro para el botón del toggler */
+}
+
+/* Media query para ajustar la altura en móviles si es necesario */
+@media (max-width: 768px) {
+    header {
+        min-height: 150px; /* Una altura menor para pantallas pequeñas */
+    }
+}
+
+/* assets/css/style.css */
+
+/* ... tus estilos existentes ... */
+
+/* Scroll to Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la derecha */
+    background-color: #333; /* Color de fondo oscuro */
+    color: #fff; /* Color del icono blanco */
+    width: 45px; /* Tamaño del botón */
+    height: 45px; /* Tamaño del botón */
+    border-radius: 50%; /* Lo hace circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; /* Tamaño del icono */
+    opacity: 0; /* Inicialmente invisible */
+    visibility: hidden; /* Oculto para lectores de pantalla cuando no es visible */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Transición suave */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    text-decoration: none; /* Elimina el subrayado por defecto del enlace */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.scroll-top-btn:hover {
+    background-color: #555; /* Un tono más claro al pasar el ratón */
+    color: #fff;
+}
+
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Media Queries para ajustar en diferentes tamaños de pantalla si es necesario */
+@media (min-width: 768px) {
+    .scroll-top-btn {
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: #f8f9fa; /* Fondo ligeramente gris para la sección */
+    padding: 80px 0; /* Más padding vertical para espacio */
+}
+
+#contact .display-4 {
+    color: #333; /* Color oscuro para el título principal */
+}
+
+#contact .lead {
+    color: #666; /* Un gris más suave para el texto introductorio */
+    max-width: 800px; /* Limita el ancho del texto para mejor legibilidad */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-card {
+    background-color: #fff;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada pero sutil */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde muy sutil */
+}
+
+.contact-card:hover {
+    transform: translateY(-8px); /* Efecto de "levantamiento" al pasar el ratón */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18); /* Sombra más intensa al pasar el ratón */
+}
+
+.contact-card .icon-wrapper {
+    color: #AF5E42; /* Tu color de acento para los iconos principales */
+    margin-bottom: 25px; /* Espacio debajo del icono */
+}
+
+.contact-card .icon-wrapper i {
+    font-size: 3.8rem; /* Iconos un poco más grandes */
+    transition: color 0.3s ease;
+}
+
+/* Opcional: Cambiar color de icono al pasar el ratón por la tarjeta */
+.contact-card:hover .icon-wrapper i {
+    color: #333; /* O un color más oscuro/claro de tu paleta */
+}
+
+.contact-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.35rem; /* Ajuste de tamaño para el título de la tarjeta */
+}
+
+.contact-card p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-btn {
+    font-weight: 600;
+    padding: 12px 30px; /* Padding más generoso para los botones */
+    border-radius: 50px; /* Botones con forma de píldora */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.8px; /* Espaciado entre letras */
+    transition: all 0.3s ease;
+}
+
+.btn-dark {
+    
+    border-color: #333 !important;
+}
+
+.btn-dark:hover {
+    background-color: #555 !important;
+    border-color: #555 !important;
+}
+
+
+
+.btn-outline-dark:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+/* Asegura que el texto de ubicación tenga un buen contraste */
+.contact-card .fs-5 {
+    color: #333;
+    font-weight: 700;
+}
+
+/* Media Queries para ajustar en pantallas pequeñas si es necesario */
+@media (max-width: 767.98px) {
+    #contact {
+        padding: 50px 0;
+    }
+    .contact-card {
+        padding: 30px;
+    }
+    .contact-card .icon-wrapper i {
+        font-size: 3rem;
+    }
+    .contact-btn {
+        padding: 10px 25px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Custom Navbar Toggler (Mobile-First) */
+.navbar-toggler {
+    /* Eliminar estilos por defecto de Bootstrap */
+    border: none !important; /* Quita el borde */
+    background-color: transparent !important; /* Fondo transparente */
+    padding: 0 !important; /* Quita el padding */
+    outline: none !important; /* Quita el contorno al hacer focus */
+    box-shadow: none !important; /* Quita cualquier sombra */
+    /* Asegurar que sea clickeable con un buen área de toque */
+    width: 40px; /* Ancho suficiente para tocar */
+    height: 40px; /* Alto suficiente para tocar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Para posicionar el icono dentro */
+    z-index: 1050; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilo de las 3 líneas del icono (navbar-toggler-icon) */
+.navbar-toggler-icon {
+    display: block;
+    position: relative;
+    width: 28px; /* Ancho de la línea */
+    height: 3px; /* Grosor de la línea */
+    background-color: #333; /* Color de la línea central */
+    border-radius: 2px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para la animación */
+}
+
+/* Línea superior */
+.navbar-toggler-icon::before {
+    content: '';
+    position: absolute;
+    top: -9px; /* Posición de la línea superior */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Color de la línea superior */
+    border-radius: 2px;
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+/* Línea inferior */
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -9px; /* Posición de la línea inferior */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Color de la línea inferior */
+    border-radius: 2px;
+    transition: transform 0.3s ease, bottom 0.3s ease;
+}
+
+/* Animación cuando el menú está abierto (el icono se convierte en una 'X') */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    background-color: transparent; /* Oculta la línea central */
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    top: 0; /* Mueve la línea superior al centro */
+    transform: rotate(45deg); /* Gira 45 grados */
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    bottom: 0; /* Mueve la línea inferior al centro */
+    transform: rotate(-45deg); /* Gira -45 grados */
+}
+
+/* Efecto hover opcional */
+.navbar-toggler:hover .navbar-toggler-icon,
+.navbar-toggler:hover .navbar-toggler-icon::before,
+.navbar-toggler:hover .navbar-toggler-icon::after {
+    background-color: #AF5E42; /* Cambia al color de acento al pasar el ratón */
+}
+
+/* Asegurarse de que el color del icono por defecto de Bootstrap no interfiera */
+.navbar-toggler-icon::after {
+    /* Esto es crucial si Bootstrap inyecta un SVG de fondo */
+    background-image: none !important;
+}
+
+/* Para el fondo del icono */
+.navbar-dark .navbar-toggler-icon { /* Si usas navbar-dark */
+    background-image: none !important;
+}
+.navbar-light .navbar-toggler-icon { /* Si usas navbar-light */
+    background-image: none !important;
+}
+
+/* Estilos para las tarjetas de exposición */
+.exhibition-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #fff; /* Asegura un fondo blanco para las tarjetas */
+}
+
+.exhibition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.exhibition-card .card-title {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.exhibition-card .card-subtitle {
+    color: #777 !important;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.exhibition-card .card-text {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Estilos específicos para la sección de Próximas Exposiciones */
+.upcoming-card .card-title {
+    color: #AF5E42 !important; /* Color de acento para títulos de próximas exposiciones */
+}
+
+/* Estilos para la galería de imágenes dentro de las tarjetas de exposición */
+.exhibition-card .gallery-item-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Espacio entre las miniaturas */
+    margin-top: 1rem;
+}
+
+.exhibition-card .gallery-item-wrapper a {
+    flex: 1 1 calc(33.333% - 0.5rem); /* 3 miniaturas por fila con algo de espacio */
+    max-width: calc(33.333% - 0.5rem);
+    text-decoration: none; /* Elimina el subrayado de los enlaces de las miniaturas */
+}
+
+.exhibition-card .gallery-item-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.exhibition-card .gallery-item-wrapper img:hover {
+    transform: scale(1.05); /* Pequeño zoom al pasar el ratón por las miniaturas */
+}
+
+/* Ajustes para los títulos de las secciones */
+#upcoming-exhibitions h2,
+#past-exhibitions h2 {
+    font-size: 2.5rem; /* Asegura un tamaño adecuado para los títulos de sección */
+    color: #333;
+}
+
+/* Separador horizontal */
+hr {
+    border-top: 1px solid #EBEAE6;
+    opacity: 1;
+    margin: 4rem auto;
+    max-width: 80%;
+}
