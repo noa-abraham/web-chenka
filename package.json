@@ -1,0 +1,22 @@
+{
+  "name": "pruebacero-flor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "git lfs pull",          
+    "build": "echo 'Building static site...' || true", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noa-abraham/web-chenka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noa-abraham/web-chenka/issues"
+  },
+  "homepage": "https://github.com/noa-abraham/web-chenka#readme",
+  "description": ""
+}
