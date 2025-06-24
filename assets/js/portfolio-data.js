@@ -720,12 +720,7 @@ const portfolioItems = [
     cat: "Mural",
     image: "assets/img/murales/Mural (13).jpg",
   },
-  {
-    category: "murales",
-    title: "mural 14",
-    cat: "Mural",
-    image: "assets/img/murales/Mural (14).jpg",
-  },
+ 
   {
     category: "murales",
     title: "mural 15",
@@ -768,30 +763,14 @@ const portfolioItems = [
     cat: "Mural",
     image: "assets/img/murales/Mural (3).jpg",
   },
-  {
-    category: "murales",
-    title: "mural 4",
-    cat: "Mural",
-    image: "assets/img/murales/Mural (4).jpg",
-  },
+ 
   {
     category: "murales",
     title: "mural 5",
     cat: "Mural",
     image: "assets/img/murales/Mural (5).jpg",
   },
-  {
-    category: "murales",
-    title: "mural 6",
-    cat: "Mural",
-    image: "assets/img/murales/Mural (6).jpg",
-  },
-  {
-    category: "murales",
-    title: "mural 7",
-    cat: "Mural",
-    image: "assets/img/murales/Mural (7).jpg",
-  },
+ 
   {
     category: "murales",
     title: "mural 8",

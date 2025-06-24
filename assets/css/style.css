@@ -231,7 +231,7 @@ main a:hover {
     color: #000 !important; /* Un poco más oscuro al pasar el ratón para los de contacto */
 }
 
-/* assets/css/style.css - Añadir o modificar */
+
 
 /* Mejora de botones de filtro activos/hover */
 .filter-btn {
@@ -293,7 +293,7 @@ body {
     color: #555555 !important; /* Gris medio para enlaces por defecto */
 }
 .nav-link:hover {
-    color: #AF5E42 !important; /* Íconos de redes sociales con el color de acento */
+    color: #b1a900 !important; /* Íconos de redes sociales con el color de acento */
     
 }
 
@@ -329,18 +329,32 @@ footer a.text-white:hover {
     color: #AF5E42 !important; /* Acento principal para los enlaces de contacto al pasar el ratón */
 }
 #contact .contact-list i {
-    color: #AF5E42; /* Iconos de contacto con el acento principal */
+    color: #2C3A47; /* Iconos de contacto con el acento principal */
 }
 
-/* Reafirmar estilos de links generales para el body (si ya no los tienes así) */
-main a {
-    color: #555555; /* Links por defecto en gris medio */
-    text-decoration: none;
+/* Responsive Design - Ajustes específicos para Contacto en móviles */
+@media (max-width: 575.98px) { /* Para pantallas más pequeñas que 576px (tamaño 'sm' de Bootstrap) */
+
+    #contact .contact-list li {
+        font-size: 1rem; /* Reduce el tamaño base de la fuente de los elementos de la lista */
+    }
+
+    #contact .contact-list i.fa-2x {
+        font-size: 1.5rem !important; /* Ajusta el tamaño de los iconos si 2rem es demasiado grande */
+    }
+
+    #contact .contact-list span.fs-4 {
+        font-size: 1.2rem !important; /* Reduce el tamaño de fuente de los spans con fs-4 */
+        line-height: 1.4; /* Ajusta el interlineado para evitar desbordamiento vertical */
+    }
+
+    /* Puedes agregar más ajustes si es necesario */
+    #contact h2 {
+        font-size: 2rem; /* Si el título principal también es muy grande, ajústalo */
+    }
 }
-main a:hover {
-    color: #AF5E42; /* Hover con acento principal */
-    text-decoration: none;
-}
+
+
 
 
 /* Estilos para destacar el nombre de la serie en la galería */
@@ -438,7 +452,7 @@ main a:hover {
 
 
 header {
-    background-image: url('../img/pintura/la-pela-papas.jpg'); /* Asegúrate de que la ruta sea correcta */
+    background-image: url('../img/pintura/portada1.jpg'); /* Asegúrate de que la ruta sea correcta */
     background-size: cover; /* Ajusta la imagen para cubrir todo el área del header */
     background-position: center; /* Centra la imagen en el header */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -475,6 +489,12 @@ header .nav-link {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para el texto para mayor legibilidad */
 }
 
+
+header .nav-link:hover {
+    color: #b1a900 !important; /* Cambia el color al pasar el ratón */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para el texto para mayor legibilidad */
+}
+
 header .navbar-toggler-icon {
     filter: invert(1); /* Invierte el color del icono del toggler para que sea blanco */
 }
@@ -490,9 +510,7 @@ header .navbar-toggler {
     }
 }
 
-/* assets/css/style.css */
 
-/* ... tus estilos existentes ... */
 
 /* Scroll to Top Button */
 .scroll-top-btn {
@@ -537,112 +555,7 @@ header .navbar-toggler {
     }
 }
 
-/* Contact Section Styling */
-#contact {
-    background-color: #f8f9fa; /* Fondo ligeramente gris para la sección */
-    padding: 80px 0; /* Más padding vertical para espacio */
-}
 
-#contact .display-4 {
-    color: #333; /* Color oscuro para el título principal */
-}
-
-#contact .lead {
-    color: #666; /* Un gris más suave para el texto introductorio */
-    max-width: 800px; /* Limita el ancho del texto para mejor legibilidad */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact-card {
-    background-color: #fff;
-    border-radius: 12px; /* Bordes más redondeados */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada pero sutil */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde muy sutil */
-}
-
-.contact-card:hover {
-    transform: translateY(-8px); /* Efecto de "levantamiento" al pasar el ratón */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18); /* Sombra más intensa al pasar el ratón */
-}
-
-.contact-card .icon-wrapper {
-    color: #AF5E42; /* Tu color de acento para los iconos principales */
-    margin-bottom: 25px; /* Espacio debajo del icono */
-}
-
-.contact-card .icon-wrapper i {
-    font-size: 3.8rem; /* Iconos un poco más grandes */
-    transition: color 0.3s ease;
-}
-
-/* Opcional: Cambiar color de icono al pasar el ratón por la tarjeta */
-.contact-card:hover .icon-wrapper i {
-    color: #333; /* O un color más oscuro/claro de tu paleta */
-}
-
-.contact-card h3 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.35rem; /* Ajuste de tamaño para el título de la tarjeta */
-}
-
-.contact-card p {
-    color: #777;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.contact-btn {
-    font-weight: 600;
-    padding: 12px 30px; /* Padding más generoso para los botones */
-    border-radius: 50px; /* Botones con forma de píldora */
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.8px; /* Espaciado entre letras */
-    transition: all 0.3s ease;
-}
-
-.btn-dark {
-    
-    border-color: #333 !important;
-}
-
-.btn-dark:hover {
-    background-color: #555 !important;
-    border-color: #555 !important;
-}
-
-
-
-.btn-outline-dark:hover {
-    background-color: #333 !important;
-    color: #fff !important;
-}
-
-/* Asegura que el texto de ubicación tenga un buen contraste */
-.contact-card .fs-5 {
-    color: #333;
-    font-weight: 700;
-}
-
-/* Media Queries para ajustar en pantallas pequeñas si es necesario */
-@media (max-width: 767.98px) {
-    #contact {
-        padding: 50px 0;
-    }
-    .contact-card {
-        padding: 30px;
-    }
-    .contact-card .icon-wrapper i {
-        font-size: 3rem;
-    }
-    .contact-btn {
-        padding: 10px 25px;
-        font-size: 0.8rem;
-    }
-}
 
 /* Custom Navbar Toggler (Mobile-First) */
 .navbar-toggler {
@@ -812,3 +725,4 @@ hr {
     margin: 4rem auto;
     max-width: 80%;
 }
+
