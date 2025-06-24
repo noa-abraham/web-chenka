@@ -23,9 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #000 !important;
-}
+
 
 /* Botones de filtro */
 .filter-btn {
@@ -292,8 +290,8 @@ body {
 .nav-link {
     color: #555555 !important; /* Gris medio para enlaces por defecto */
 }
-.nav-link:hover {
-    color: #b1a900 !important; /* Íconos de redes sociales con el color de acento */
+.nav-link:hover, .nav-link:focus, .nav-link:active {
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
     
 }
 
@@ -325,8 +323,8 @@ footer a.text-white:hover {
 #contact .contact-list a {
     color: #333333 !important; /* Color de texto principal para los enlaces de contacto */
 }
-#contact .contact-list a:hover {
-    color: #AF5E42 !important; /* Acento principal para los enlaces de contacto al pasar el ratón */
+#contact .contact-list a:hover a:focus a:active {
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
 }
 #contact .contact-list i {
     color: #2C3A47; /* Iconos de contacto con el acento principal */
@@ -355,6 +353,20 @@ footer a.text-white:hover {
 }
 
 
+@media (max-width: 400px) {
+   
+    p.lead { 
+        font-size: 1rem !important;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+}
 
 
 /* Estilos para destacar el nombre de la serie en la galería */
@@ -490,9 +502,9 @@ header .nav-link {
 }
 
 
-header .nav-link:hover {
-    color: #b1a900 !important; /* Cambia el color al pasar el ratón */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para el texto para mayor legibilidad */
+header .nav-link:hover, .nav-link:focus, .nav-link:active {
+   
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
 }
 
 header .navbar-toggler-icon {
@@ -631,7 +643,7 @@ header .navbar-toggler {
 .navbar-toggler:hover .navbar-toggler-icon,
 .navbar-toggler:hover .navbar-toggler-icon::before,
 .navbar-toggler:hover .navbar-toggler-icon::after {
-    background-color: #AF5E42; /* Cambia al color de acento al pasar el ratón */
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Asegurarse de que el color del icono por defecto de Bootstrap no interfiera */
@@ -724,5 +736,19 @@ hr {
     opacity: 1;
     margin: 4rem auto;
     max-width: 80%;
+}
+
+
+a {
+    text-decoration: none; /* Asegura que no haya un subrayado por defecto del navegador */
+    transition: text-shadow 0.3s ease, color 0.3s ease; /* Transición suave para la sombra y el color */
+}
+
+a:hover,
+a:focus, /* Para navegación con teclado o al hacer clic/tocar en móvil */
+a:active { /* Para el estado 'activo' al tocar en móvil */
+   color: #ffcc00; /* O el color que tengas definido */
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
+   
 }
 
