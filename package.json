@@ -1,10 +1,10 @@
 {
   "name": "pruebacero-flor",
   "version": "1.0.0",
- 
+  
   "scripts": {
-    "prebuild": "git lfs pull",          
-    "build": "echo 'Building static site...' || true", 
+    "prebuild": "git config --local lfs.url https://github.com/noa-abraham/web-chenka.git/info/lfs && git lfs pull", // <-- ¡MODIFICA ESTA LÍNEA!
+    "build": "echo 'Building static site...' && exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
